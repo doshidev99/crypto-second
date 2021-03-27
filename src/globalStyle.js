@@ -22,4 +22,32 @@ const H3 = styled.h2`
 `;
 
 
-export { H1, H2, H3 }
+const M20 = styled.h2`
+  color:  ${(props) => props.color};
+  margin-bottom:0;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+
+
+const M16 = styled.h2`
+  color:  ${(props) => props.color};
+  margin-bottom:0;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+
+
+const M14 = styled.h2`
+  color:  ${(props) => props.color};
+  margin-bottom:0;
+  font-size: 14px;
+  font-weight: bold;
+
+`;
+
+
+
+export { H1, H2, H3, M16, M14, M20 }

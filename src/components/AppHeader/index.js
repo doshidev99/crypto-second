@@ -3,7 +3,7 @@ import {
 } from 'antd';
 import logo from 'assets/images/logo.png';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import * as D from './styled';
 
 
@@ -58,35 +58,41 @@ const menuMobile = () => (
 
 );
 
-const AppHeader = () => (
-  <D.WrapperHeader>
-    <Row gutter={24} align="middle" justify="space-between">
-      <Col xs={12} md={10}>
-        <div className="w-100">
-          <D.WrapperImg>
-            <img src={logo} alt="" />
-          </D.WrapperImg>
-        </div>
-      </Col>
-      <Col xs={12} md={14} style={{ textAlign: 'right' }}>
-        <div className="d-md-block d-none">
-          <MenuDesktop />
-        </div>
-        <div className="d-md-none d-block">
-          <Dropdown overlay={menuMobile} placement="bottomCenter">
-            <D.WrapperButton>
-              <Button>
-                Open Menu
+const AppHeader = () => {
+
+  const { pathname } = useLocation();
+
+
+  return (
+    <D.WrapperHeader isBg={pathname !== '/'}>
+      <Row gutter={24} align="middle" justify="space-between">
+        <Col xs={12} md={10}>
+          <div className="w-100">
+            <D.WrapperImg>
+              <img src={logo} alt="" />
+            </D.WrapperImg>
+          </div>
+        </Col>
+        <Col xs={12} md={14} style={{ textAlign: 'right' }}>
+          <div className="d-md-block d-none">
+            <MenuDesktop />
+          </div>
+          <div className="d-md-none d-block">
+            <Dropdown overlay={menuMobile} placement="bottomCenter">
+              <D.WrapperButton>
+                <Button>
+                  Open Menu
               </Button>
-            </D.WrapperButton>
-          </Dropdown>
-        </div>
-      </Col>
-    </Row>
+              </D.WrapperButton>
+            </Dropdown>
+          </div>
+        </Col>
+      </Row>
 
-  </D.WrapperHeader>
+    </D.WrapperHeader>
 
-);
+  )
+};
 
 AppHeader.propTypes = {
 

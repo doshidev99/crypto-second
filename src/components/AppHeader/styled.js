@@ -1,10 +1,11 @@
+import { COLORS } from 'rootConstants';
 import styled from 'styled-components';
 
 const WrapperHeader = styled.div`
+  background: ${(props) => props.isBg ? COLORS.button : 'rgba(240, 248, 255, 0)'};
   position: absolute;
   top: 0;
 
-  background: rgba(240, 248, 255, 0);
   height: 100px;
   line-height: 100px;
   width: 100%;
