@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from 'pages/Home';
+import Buy from 'pages/Buy';
 
 import './styles.css';
 
@@ -27,8 +28,16 @@ export default function App() {
     <Router>
       <div className="App">
         <Switch>
+        <Route
+            path="/buy"
+            exact
+            component={() => (
+              <Buy />
+            )}
+          />
           <Route
             path="/"
+            exact
             component={() => (
               <Home />
             )}

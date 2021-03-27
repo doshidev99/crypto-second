@@ -2,9 +2,14 @@ import React from 'react'
 import styled from 'styled-components';
 import { COLORS } from 'rootConstants';
 
-const AppButton = ({ content, style, className }) => {
+const AppButton = ({ content, style, className, prefix }) => {
   return (
     <LaucherApp className={className} style={style} color={COLORS.button}>
+      {
+        prefix && (
+          { prefix }
+        )
+      }
       {content}
     </LaucherApp>
   )
