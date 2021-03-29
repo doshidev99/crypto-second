@@ -1,13 +1,66 @@
 import { Pie } from '@ant-design/charts';
-import { Col, Row, Input } from 'antd';
+import { Col, Input, message, Modal, Row } from 'antd';
+import IcoinCoin from 'assets/images/ic-coin.png';
+import logo from 'assets/images/logo-transparent.png';
 import AppButton from 'components/AppButton';
-import { H1, H2, H3, M16 } from 'globalStyle.js';
-import React from 'react';
+import { H1, H2, M16, M20 } from 'globalStyle.js';
+import debounce from "lodash/debounce";
+import React, { memo, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from 'react-router';
+import { getContract } from 'redux/actions/getContract';
 import { COLORS } from 'rootConstants';
 import styled from 'styled-components';
-import logo from 'assets/images/logo.png';
+import { copyStringToClipboard } from 'utils';
+import { WrapperIconCoin } from './styles';
+
 
 const BuySectionPreSale = () => {
+
+  const { balance, isConnected, account } = useSelector(state => state.w3Reducer)
+
+  const [currentBalance, setCurrentBalance] = useState()
+  const [isVisibale, setIsvisible] = useState(false)
+  const [currentRef, setCurrentRef] = useState('0x5F6c31525d7c643cb7dbcA8d94a3Ef99384eaEba')
+
+  const dispatch = useDispatch()
+
+  const [currentReceived, setCurrentReceived] = useState('- FNT');
+
+  const { pathname } = useLocation()
+
+  const refUrl = pathname.split('/')[2]
+
+  const onClipBoard = () => {
+    copyStringToClipboard(`https://fennecnft.com/buy/${currentRef}`);
+    message.success('Copy REF success');
+  };
+
+  const handleConnect = () => {
+    window?.ethereum?.enable().then(res => res?.length > 0 && window.location.reload());
+  }
+
+  const handleBuy = () => {
+    if (currentBalance) {
+
+      const payload = {
+        currentBalance, account, currentRef
+      }
+
+      dispatch(getContract(payload))
+    } else {
+      message.warn('Please enter your amount BNB');
+    }
+
+  }
+
+  useEffect(() => {
+    if (refUrl) {
+      setCurrentRef(preState => preState !== refUrl ? refUrl : '0x5F6c31525d7c643cb7dbcA8d94a3Ef99384eaEba')
+    }
+  }, [refUrl])
+
+
   const data = [
 
     {
@@ -27,7 +80,7 @@ const BuySectionPreSale = () => {
   const config = {
     data: data,
     colorField: 'type',
-    color: ['#d62728', '#2ca02c', '#000000'],
+    color: ['#f29d2c', '#ce4532', '#339be2'],
     angleField: 'value',
     optional: 'png',
     radius: 0.9,
@@ -41,14 +94,83 @@ const BuySectionPreSale = () => {
     },
   };
 
+  const toggle = () => {
+    setIsvisible(c => !c)
+  }
+  const getBalance = async () => {
+    if (balance) {
+      await setCurrentBalance(() => balance)
+      await setCurrentReceived(() => (+balance * 2500).toFixed(3))
+    }
+  }
+
+  const onChangeBlance = (e) => {
+    if (+e.target.value >= balance) {
+      debouceSearch(balance)
+    } else {
+
+      debouceSearch(e.target.value)
+    }
+  };
+
+  const formatBalance = (value) => {
+    setCurrentReceived(() => (+value * 2500).toFixed(3))
+    setCurrentBalance(() => (+value))
+  }
+
+  const debouceSearch = debounce(formatBalance, 100);
+
+
   return (
     <WrapperComponent>
-      <H1 color={COLORS.colorCountDown} style={{ fontSize: 42 }} className="text-center pt-4">
-        Presale
-    </H1>
-      <H2  className="text-center">
-        <span style={{color: COLORS.colorCountDown}}>
-        ENDS IN
+      <Modal title={false} footer={false} closable={false}
+        onCancel={toggle}
+        visible={isVisibale}
+        bodyStyle={{ background: 'unset', padding: 0, overflow: ' hidden', borderRadius: 15 }} >
+        <WrapperHeaderCard>
+          <Row gutter={24} align="middle" justify="space-between">
+            <Col>
+              <H2 style={{ fontSize: 20 }} className="mb-0" color={COLORS.colorCountDown}>
+                Your REF
+              </H2>
+            </Col>
+          </Row>
+        </WrapperHeaderCard>
+        <WrapperContent color={COLORS.button} >
+          <div style={{ height: '100%' }}>
+            <Row align="middle" justify="center" className="pb-3">
+              <Col>
+                <WrapperLogo>
+                  <img src={logo} alt="" />
+                </WrapperLogo>
+              </Col>
+            </Row>
+
+            <Input
+              value={`https://fennecnft.com/buy/${currentRef}`}
+              type="text" size="small"
+              placeholder="Enter BNB amount" addonAfter={
+                <WrapperInInput style={{ color: 'white', opacity: 1 }} onClick={onClipBoard}>
+                  Save
+              </WrapperInInput>
+              } />
+
+          </div>
+        </WrapperContent>
+
+      </Modal>
+      <Row align="middle" justify="center" className="mt-md-0 mt-5">
+        <WrapperIconCoin>
+          <img src={IcoinCoin} alt="" />
+        </WrapperIconCoin>
+        <div>
+          <H1 color={COLORS.colorCountDown} style={{ fontSize: 42 }} className="text-center pt-4"> Presale </H1>
+        </div>
+      </Row>
+      <H2 className="text-center" style={{ color: '#0a1f37' }} >
+
+        <span style={{ color: COLORS.colorCountDown }}>
+          ENDS IN
         </span>
          15:12:25:14
     </H2>
@@ -57,13 +179,13 @@ const BuySectionPreSale = () => {
         <Col xs={24} md={10}>
           <WrapperHeaderCard>
             <Row gutter={24} align="middle" justify="space-between">
-              <Col>
-                <H2 style={{ fontSize: 20 }} className="mb-0" color={COLORS.colorCountDown}>
+              <Col xs={10}>
+                <H2 style={{ fontSize: 20 , color: '#f29d2c'}} className="mb-0">
                   Presale Details
-              </H2>
+                </H2>
               </Col>
-              <Col>
-                <AppButton className="mt-0" content="More info" />
+              <Col xs={14} className="text-right">
+                <AppButton className="mt-md-0 mt-2 d-inline-block" content="More info" isquestion />
               </Col>
             </Row>
           </WrapperHeaderCard>
@@ -74,16 +196,19 @@ const BuySectionPreSale = () => {
           </WrapperChart>
 
         </Col>
-        <Col xs={24} md={10}>
+        <Col xs={24} md={10} className="mt-md-0 mt-4">
           <WrapperHeaderCard>
             <Row gutter={24} align="middle" justify="space-between">
               <Col>
-                <H2 style={{ fontSize: 20 }} className="mb-0" color={COLORS.colorCountDown}>
+                <H2 style={{ fontSize: 20, color: '#f29d2c' }} className="mb-0" color={COLORS.colorCountDown}>
                   Buy
               </H2>
               </Col>
               <Col>
-                <AppButton className="mt-0" content="Referer" />
+                <AppButton className="mt-0" content="Referer"
+                  isShare
+                  onClick={toggle}
+                />
               </Col>
             </Row>
           </WrapperHeaderCard>
@@ -98,8 +223,8 @@ const BuySectionPreSale = () => {
                 </Col>
 
                 <Col>
-                  No Min - Max: 30 BNB
-              </Col>
+                  <M20 color={COLORS.second}> No Min - Max: 30 BNB </M20>
+                </Col>
 
                 <Col>
                   <WrapperLogo>
@@ -108,11 +233,14 @@ const BuySectionPreSale = () => {
                 </Col>
               </Row>
 
-              <Input size="small" placeholder="Enter BNB amount" addonAfter={
-                <WrapperInInput>
-                  MAX
+              <Input
+                value={currentBalance} onChange={onChangeBlance}
+                type="number" size="small"
+                placeholder="Enter BNB amount" addonAfter={
+                  <WrapperInInput onClick={getBalance}>
+                    MAX
               </WrapperInInput>
-              } />
+                } />
 
               <Row gutter={24} align="middle" justify="center" className="py-3">
                 <Col>
@@ -122,12 +250,11 @@ const BuySectionPreSale = () => {
                   <Row align="middle" justify="center">
                     <Col>
                       <WrapperAutoPrice>
-                        <M16> - MGB</M16>
+                        <M16> {currentReceived}</M16>
                       </WrapperAutoPrice>
                     </Col>
                     <Col className="pl-2">
                       <M16 >Instant</M16>
-
                     </Col>
                   </Row>
                 </Col>
@@ -135,7 +262,14 @@ const BuySectionPreSale = () => {
 
               <div className="text-center">Tokens are ....</div>
 
-              <AppButton content="CONNECT" style={{ width: '100%', opacity: 0.7 }} className="mt-0" />
+
+              {
+                isConnected ? (
+                  <AppButton disable={currentBalance ? false : true} onClick={handleBuy} content="Buy" style={{ width: '100%', opacity: isConnected ? 1 : 0.7 }} className="mt-0" />
+                ) : (
+                  <AppButton onClick={handleConnect} content="Connect Metamask" style={{ width: '100%', opacity: 0.7 }} className="mt-0" />
+                )
+              }
             </div>
           </WrapperContent>
         </Col>
@@ -145,19 +279,19 @@ const BuySectionPreSale = () => {
 };
 
 const WrapperComponent = styled.div`
-    background-color: white;
     width: 100%;
-    height: 100vh;
     padding: 100px 100px 0px 100px;
+    margin-bottom: 30px;
+
+    >.ant-modal-content {
+      background: red
+    }
 
     @media only screen and (max-width: 768px) {
       padding: 30px;
-      background-image: url(${(props) => props.bgMobile});
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: white;
       height: 100%;
-      box-shadow:inset 0 0 0 2000px rgb(255, 102, 0, 0.8);
+
+      background: white;
   }
 
 `;
@@ -249,6 +383,7 @@ width: 50px;
 
 `
 const WrapperInInput = styled.div`
+  cursor: pointer;
 
 `
 
@@ -263,4 +398,4 @@ BuySectionPreSale.propTypes = {
 
 };
 
-export default BuySectionPreSale;
+export default memo(BuySectionPreSale);

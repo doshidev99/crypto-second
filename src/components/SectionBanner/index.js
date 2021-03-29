@@ -13,7 +13,7 @@ import styled from 'styled-components';
 const BannerComponent = () => (
   <WrapperComponent imgUrl={bgDesktop} bgMobile={bgMobile}>
     <WrapperContent>
-      <H2 color={COLORS.primary}> FENNICNFT </H2>
+      <H2 color={COLORS.primary}> FENNECNFT </H2>
       <H1 color={COLORS.second}>Money Markets</H1>
       <Slogan color={COLORS.second}>
         A Decentralized Marketplace for Lenders and Borrowers with Borderless Stablecoins.

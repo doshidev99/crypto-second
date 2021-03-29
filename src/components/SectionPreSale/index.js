@@ -20,7 +20,7 @@ const PreSale = () => (
     <Row gutter={24} align="middle">
       <Col xs={24} md={14}>
         <WrapperContent>
-          <H2 color={COLORS.primary} isOrange> FENNICNFT </H2>
+          <H2 color={COLORS.primary} isOrange> FENNECNFT </H2>
           <H3 color={COLORS.second} isOrange>Pre-sale Coming Soon</H3>
 
           <Slogan color={COLORS.second}>
@@ -32,7 +32,7 @@ const PreSale = () => (
               <span style={{ fontWeight: 550 }}>
                 Name:
             </span>
-              <span className="font-weight-bold"> FENNICNFT</span></Col>
+              <span className="font-weight-bold"> FENNECNFT</span></Col>
             <Col>
               <span style={{ fontWeight: 550 }}>
                 Symbol:

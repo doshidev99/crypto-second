@@ -1,41 +1,53 @@
 import { Menu, Row } from 'antd';
 import React from 'react';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { NavLink, useLocation } from 'react-router-dom';
+import { listMenu } from 'rootConstants';
 import styled from 'styled-components';
-import * as D from './styled';
-
-import { listMenu } from 'rootConstants'
+import { WrapperConnect, WrapperMenu } from './styled';
 
 const MenuDesktop = ({ isFooter }) => {
+
   const { pathname } = useLocation();
+  const { isConnected } = useSelector((state) => state.w3Reducer);
+
+  const handleConnect = () => {
+    window?.ethereum?.enable().then(res => res?.length > 0 && window.location.reload());
+  }
+
   return (
     <WrapperComponent>
       <Menu style={{ background: 'none', border: 'none', fontSize: 16 }}>
         <Row align="middle" justify="space-between">
           {
             listMenu.map((menu) => (
-              <Menu.Item>
-                <D.WrapperMenu>
+              <Menu.Item key={menu.name}>
+                <WrapperMenu>
                   <NavLink to={menu.path} className={`${menu.path === pathname && 'activeMenu'}`}>
                     {
                       menu.name
                     }
 
                   </NavLink>
-                </D.WrapperMenu>
+                </WrapperMenu>
               </Menu.Item>
             ))
           }
 
           <Menu.Item>
-            <D.WrapperMenu>
-              <D.WrapperConnect>
-                {
-                  isFooter ? 'Connect Wallet' : 'Connected'
-                }
-
-              </D.WrapperConnect>
-            </D.WrapperMenu>
+            <WrapperMenu>
+              {
+                isConnected ? (
+                  <WrapperConnect>
+                    Connected
+                  </WrapperConnect>
+                ) : (
+                  <WrapperConnect onClick={handleConnect}>
+                    Connect Metamask
+                  </WrapperConnect>
+                )
+              }
+            </WrapperMenu>
           </Menu.Item>
         </Row>
       </Menu>

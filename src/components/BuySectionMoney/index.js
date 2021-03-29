@@ -1,9 +1,9 @@
+import { Col, Row } from 'antd';
+import { M14, M16, M20 } from 'globalStyle.js';
 import React from 'react';
-
-import styled from 'styled-components';
-import { Col, Row, Input } from 'antd';
-import { H1, H2, H3, M14, M16, M20 } from 'globalStyle.js';
 import { COLORS } from 'rootConstants';
+import styled from 'styled-components';
+
 
 
 const listCoin = [{
@@ -23,12 +23,13 @@ const listCoin = [{
   coin: '30,000'
 },
 ]
+
 const BuySectionMoney = () => (
   <WrapperComponent>
 
     <Row gutter={24} align="middle" justify="space-between">
 
-      <Col xs={6}>
+      <Col md={6} xs={24} >
         <WrapperListCoin>
           <M16 className="text-center" color={COLORS.colorCountDown}> No Min - Max: 30 BNB </M16>
 
@@ -42,7 +43,7 @@ const BuySectionMoney = () => (
                 </Col>
                 <Col>
                   <M14 color={COLORS.second}>
-                    {coin.coin} MGB
+                    {coin.coin} FNT
               </M14>
                 </Col>
               </Row>
@@ -53,7 +54,7 @@ const BuySectionMoney = () => (
       </Col>
 
 
-      <Col xs={9}>
+      <Col md={9} xs={12} className="mt-md-0 mt-3" >
         <WrapperHeaderCard className="text-center">
           <M20 color={COLORS.colorCountDown} className="pb-2">
             Presale Price
@@ -61,7 +62,7 @@ const BuySectionMoney = () => (
           </M20>
 
           <M16 color={COLORS.second}>
-            1 BNB = 99 MGB
+            1 BNB = 99 FNT
         </M16>
         </WrapperHeaderCard>
 
@@ -72,12 +73,12 @@ const BuySectionMoney = () => (
           </M20>
 
           <M16 color={COLORS.second}>
-            1 BNB = 99 MGB
+            1 BNB = 99 FNT
         </M16>
         </WrapperContentBottom>
       </Col>
 
-      <Col xs={9}>
+      <Col md={9} xs={12} className="mt-md-0 mt-3">
         <WrapperHeaderCard className="text-center">
           <M20 color={COLORS.colorCountDown} className="pb-2">
             Listing Price
@@ -109,12 +110,7 @@ const WrapperComponent = styled.div`
     padding: 0 100px 30px 100px;
     @media only screen and (max-width: 768px) {
       padding: 30px;
-      background-image: url(${(props) => props.bgMobile});
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: white;
       height: 100%;
-      box-shadow:inset 0 0 0 2000px rgb(255, 102, 0, 0.8);
   }
 `;
 

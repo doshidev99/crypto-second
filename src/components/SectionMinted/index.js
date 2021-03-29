@@ -67,7 +67,7 @@ const SectionMinted = () => (
       </div>
 
       <WrapperTagNote color='#f29d2c'>
-        Fennicnft enables the world's first decentralized stablecoin, VAI, built on Binance Smart Chain that is backed by a basket of stablecoins and crypto assets without centralized control.
+        FENNECNFT enables the world's first decentralized stablecoin, VAI, built on Binance Smart Chain that is backed by a basket of stablecoins and crypto assets without centralized control.
       </WrapperTagNote>
 
       <AppButton content="Learn more" />

@@ -12,23 +12,24 @@ export const COLORS = {
 
 export const listMenu = [
   {
-    name: 'NFT',
+    name: 'Home',
     path: '/',
-  },
-  {
-    name: 'Markets',
-    path: '/markets',
-  },
-  {
-    name: 'Buy',
-    path: '/buy',
   },
   {
     name: 'Exchange',
     path: '/exchange',
   },
   {
+    name: 'Airdrop',
+    path: '/airdrop',
+  },
+  {
+    name: 'Buy',
+    path: '/buy',
+  },
+  {
     name: 'Docs',
     path: '/docs',
   },
 ];
+

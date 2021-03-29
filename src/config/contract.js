@@ -1,11 +1,5 @@
-export const contract = {
-    token:{
-        main: '0x68541Cc8a691c1D698e338E8acF10b107BA62979',
-        test: '0x68541Cc8a691c1D698e338E8acF10b107BA62979',
-    },
-    farm:{
-        main: '0x68541Cc8a691c1D698e338E8acF10b107BA62979',
-        test: '0x68541Cc8a691c1D698e338E8acF10b107BA62979',
-    }
-    
+export const Contract = {
+  fennecToken: '0x8965A59018fbd488d3aB49978A5FfdF971a802Cd',
+  airdrop: '0x8C7b81280f1492F1B5c3287CDE24AdDfF1144b26',
+  preSale: '0x1D533d3FC05A3220c17B14c4F2724B4abfB26E95'
 }

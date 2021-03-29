@@ -13,3 +13,12 @@ img {
 .menu-mobile > li:hover {
 		background: rgb(218, 132, 132);
 }
+
+
+.ant-modal-content {
+	border-radius: 15px;
+}
+
+.cl-yellow {
+	color: #dd9c3c;
+}

@@ -7,6 +7,7 @@ import { ReactComponent as Path } from 'assets/images/PATH.svg';
 import { ReactComponent as Telegram } from 'assets/images/telegram.svg';
 import { ReactComponent as Twitter } from 'assets/images/twittersvg.svg';
 import React from 'react';
+import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { listMenu } from 'rootConstants';
 import styled from 'styled-components';
@@ -15,78 +16,94 @@ import styled from 'styled-components';
 const listSocial = [{ name: 'Telegram', component: Telegram }, { name: 'Twitter', component: Twitter }, { name: 'Contract', component: Contract }]
 
 
-const AppFooter = () => (
-  <WrapperFooter>
-    <Row gutter={24} align="middle" justify="space-between">
-      <Col xs={24} md={10}>
-        <div className="w-100 mb-md-0 mb-5">
-          <WrapperImg>
-            <img src={logo} alt="" />
-          </WrapperImg>
-        </div>
-      </Col>
-      <Col xs={24} md={14} style={{ textAlign: 'right' }}>
-        <Menu style={{ background: 'none', border: 'none', fontSize: 16 }}>
-          <Row align="middle" justify="space-between">
-            {
-              listMenu.map((menu) => (
-                <Menu.Item>
-                  <WrapperMenu>
-                    <NavLink to={menu.path}>
-                      {menu.name}
-                    </NavLink>
-                  </WrapperMenu>
-                </Menu.Item>
-              ))
-            }
+const AppFooter = () => {
+  const { isConnected } = useSelector((state) => state.w3Reducer);
 
-            <Menu.Item>
-              <WrapperMenu>
-                <WrapperConnect className="mt-md-0 mt-5">
-                  Connect Wallet
-                  </WrapperConnect>
-              </WrapperMenu>
-            </Menu.Item>
-          </Row>
-        </Menu>
+  const handleConnect = () => {
+    window?.ethereum?.enable().then(res => res?.length > 0 && window.location.reload());
+  }
 
-      </Col>
-    </Row>
-    <Path style={{ width: '100%' }} />
-    <CopyRight>
-      <Row gutter={24} justify="space-between" align="middle">
-        <Col xs={24} md={10} className="text-white" style={{ opacity: 0.6, fontWeight: 550 }}>
-          <div> © 2021 Developed by Fennucnft. </div>
-          <div>Licensed & open-source under the MIT License</div>
-        </Col>
-
+  return (
+    <WrapperFooter>
+      <Row gutter={24} align="middle" justify="space-between">
         <Col xs={24} md={10}>
-          <Row gutter={24} className="pt-md-0 pt-3">
-            {
-              listSocial.map((el) => (
-                <Col xs={8}>
-                  <Row align="middle">
-                    <Col>
-                      <div style={{ width: 15, height: 15 }}>
-                        <el.component style={{ color: 'white', width: '100%', height: '100%', opacity: 0.6 }} />
-                      </div>
-                    </Col>
-                    <Col className="text-white pl-2">
-                      {el.name}
-                    </Col>
-                  </Row>
-                </Col>
-              ))
-            }
-          </Row>
+          <div className="w-100 mb-md-0 mb-5">
+            <WrapperImg>
+              <img src={logo} alt="" />
+            </WrapperImg>
+          </div>
+        </Col>
+        <Col xs={24} md={14} style={{ textAlign: 'right' }}>
+          <Menu style={{ background: 'none', border: 'none', fontSize: 16 }}>
+            <Row align="middle" justify="space-between" >
+              {
+                listMenu.map((menu) => (
+                  <Menu.Item>
+                    <WrapperMenu>
+                      <NavLink to={menu.path}>
+                        {menu.name}
+                      </NavLink>
+                    </WrapperMenu>
+                  </Menu.Item>
+                ))
+              }
+
+              <Menu.Item>
+                <WrapperMenu className="mt-md-0 mt-4">
+                  {
+                    isConnected ? (
+                      <WrapperConnect>
+                        Connected
+                      </WrapperConnect>
+                    ) : (
+                      <WrapperConnect onClick={handleConnect}>
+                        Connect Metamask
+                      </WrapperConnect>
+                    )
+                  }
+                </WrapperMenu>
+              </Menu.Item>
+            </Row>
+          </Menu>
 
         </Col>
       </Row>
-    </CopyRight>
+      <Path style={{ width: '100%' }} />
+      <CopyRight>
+        <Row gutter={24} justify="space-between" align="middle">
+          <Col xs={24} md={10} className="text-white" style={{ opacity: 0.6, fontWeight: 550 }}>
+            <div> © 2021 Developed by Fennucnft. </div>
+            <div>Licensed & open-source under the MIT License</div>
+          </Col>
 
-  </WrapperFooter >
+          <Col xs={24} md={10}>
+            <Row gutter={24} className="pt-md-0 pt-3">
+              {
+                listSocial.map((el) => (
+                  <Col xs={8}>
+                    <Row align="middle">
+                      <Col>
+                        <div style={{ width: 15, height: 15 }}>
+                          <el.component style={{ color: 'white', width: '100%', height: '100%', opacity: 0.6 }} />
+                        </div>
+                      </Col>
+                      <Col className="text-white pl-2">
+                        {el.name}
+                      </Col>
+                    </Row>
+                  </Col>
+                ))
+              }
+            </Row>
 
-);
+          </Col>
+        </Row>
+      </CopyRight>
+
+    </WrapperFooter >
+
+  )
+};
 
 const WrapperFooter = styled.div`
   width: 100%;

@@ -1,18 +1,17 @@
-import AppLayout from 'components/AppLayout';
-import BuySectionPreSale from 'components/BuySectionPreSale';
 import BuySectionMoney from 'components/BuySectionMoney';
-import React from 'react';
+import BuySectionPreSale from 'components/BuySectionPreSale';
+import React, { memo } from 'react';
 
 
-const Buy = () => (
-  <AppLayout>
+const Buy = ({ connected }) => (
+  <>
     <BuySectionPreSale />
     <BuySectionMoney />
-  </AppLayout>
+  </>
 );
 
 Buy.propTypes = {
 
 };
 
-export default Buy;
+export default memo(Buy);
