@@ -11,6 +11,7 @@ import AppHeader from 'components/AppHeader';
 import Buy from 'pages/Buy';
 import Home from 'pages/Home';
 import AirDrop from 'pages/Airdrop';
+import Coming from 'components/SelectionComming'
 import { useDispatch } from "react-redux";
 
 import './styles.css';
@@ -59,6 +60,18 @@ export default function App() {
             path="/airdrop"
             component={() => (
               <AirDrop />
+            )}
+          />
+          <Route
+            path="/bank"
+            component={() => (
+              <Coming />
+            )}
+          />
+          <Route
+            path="/nft"
+            component={() => (
+              <Coming />
             )}
           />
           <Route

@@ -58,9 +58,10 @@ const MenuDesktop = ({ isFooter }) => {
 const WrapperComponent = styled.div`
 
   .activeMenu {
-    border-bottom: 2px solid red;
-    padding-bottom: 10;
+    padding: 5px 15px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(242,157,44,1) 0%, rgba(255,118,26,1) 100%);
     border-radius: 5;
+    border-radius: 10px;
   }
 `;
 

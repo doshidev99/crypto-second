@@ -16,8 +16,8 @@ export const listMenu = [
     path: '/',
   },
   {
-    name: 'Exchange',
-    path: '/exchange',
+    name: 'Bank',
+    path: '/bank',
   },
   {
     name: 'Airdrop',
@@ -26,6 +26,10 @@ export const listMenu = [
   {
     name: 'Buy',
     path: '/buy',
+  },
+  {
+    name: 'NFT',
+    path: '/nft',
   },
   {
     name: 'Docs',
