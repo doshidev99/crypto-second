@@ -11,9 +11,10 @@ export const web3Connect = () => async (dispatch) => {
 	const accounts = await web3?.eth?.getAccounts();
 	const currentNetWork = web3?.currentProvider?.networkVersion
 
+	console.log(currentNetWork)
 	// eslint-disable-next-line no-console
 	if (currentNetWork !== NETWORK) {
-		// alert('Unknown network, please change network to Ropsten network');
+		alert('Unknown network, please change network to BSC Mainnet');
 		return;
 	}
 

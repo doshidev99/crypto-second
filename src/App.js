@@ -50,31 +50,31 @@ export default function App() {
         <AppHeader />
 
         <Switch>
-          <Route
+          <Route exact 
             path="/buy"
             component={() => (
               <Buy />
             )}
           />
-          <Route
+          <Route exact 
             path="/airdrop"
             component={() => (
               <AirDrop />
             )}
           />
-          <Route
+          <Route exact 
             path="/bank"
             component={() => (
               <Coming />
             )}
           />
-          <Route
+          <Route exact 
             path="/nft"
             component={() => (
               <Coming />
             )}
           />
-          <Route
+          <Route exact 
             path="/"
             exact
             component={() => (

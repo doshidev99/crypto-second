@@ -23,7 +23,7 @@ const MenuDesktop = ({ isFooter }) => {
             listMenu.map((menu) => (
               <Menu.Item key={menu.name}>
                 <WrapperMenu>
-                  <NavLink to={menu.path} className={`${menu.path === pathname && 'activeMenu'}`}>
+                  <NavLink exact to={menu.path} className={`${menu.path === pathname && 'activeMenu'}`}>
                     {
                       menu.name
                     }
