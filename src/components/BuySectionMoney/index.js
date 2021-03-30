@@ -5,22 +5,21 @@ import { COLORS } from 'rootConstants';
 import styled from 'styled-components';
 
 
-
 const listCoin = [{
   name: 'Presale',
-  coin: '180,000'
+  coin: '1,400,000'
 },
 {
-  name: 'Liquidity',
-  coin: '85,000'
-},
-{
-  name: 'Team',
-  coin: '35,000'
+  name: 'Airdrops',
+  coin: '100,000'
 },
 {
   name: 'Marketing',
-  coin: '30,000'
+  coin: '300.000'
+},
+{
+  name: 'Develope',
+  coin: '200.000'
 },
 ]
 
@@ -31,7 +30,7 @@ const BuySectionMoney = () => (
 
       <Col md={6} xs={24} >
         <WrapperListCoin>
-          <M16 className="text-center" color={COLORS.colorCountDown}> No Min - Max: 30 BNB </M16>
+          <M16 className="text-center" color={COLORS.colorCountDown}> No Min - Max: 10 BNB </M16>
 
           {
             listCoin.map(coin => (
@@ -43,7 +42,7 @@ const BuySectionMoney = () => (
                 </Col>
                 <Col>
                   <M14 color={COLORS.second}>
-                    {coin.coin} FNT
+                    {coin.coin} FNC
               </M14>
                 </Col>
               </Row>
@@ -62,18 +61,18 @@ const BuySectionMoney = () => (
           </M20>
 
           <M16 color={COLORS.second}>
-            1 BNB = 99 FNT
+            1 BNB = 2500 FNC
         </M16>
         </WrapperHeaderCard>
 
         <WrapperContentBottom className="text-center">
           <M20 color={COLORS.colorCountDown} className="pb-2">
-            Presale Price
+            Liquidity Price
 
           </M20>
 
           <M16 color={COLORS.second}>
-            1 BNB = 99 FNT
+            1 BNB = 1250 FNC
         </M16>
         </WrapperContentBottom>
       </Col>
@@ -81,11 +80,11 @@ const BuySectionMoney = () => (
       <Col md={9} xs={12} className="mt-md-0 mt-3">
         <WrapperHeaderCard className="text-center">
           <M20 color={COLORS.colorCountDown} className="pb-2">
-            Listing Price
+            Total Sold
           </M20>
 
           <M16 color={COLORS.second}>
-            107.4 BNB
+            0 BNB
         </M16>
         </WrapperHeaderCard>
 
@@ -95,7 +94,7 @@ const BuySectionMoney = () => (
           </M20>
 
           <M16 color={COLORS.second}>
-            300 BNB
+            560 BNB
         </M16>
         </WrapperContentBottom>
       </Col>

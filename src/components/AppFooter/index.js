@@ -72,7 +72,7 @@ const AppFooter = () => {
       <CopyRight>
         <Row gutter={24} justify="space-between" align="middle">
           <Col xs={24} md={10} className="text-white" style={{ opacity: 0.6, fontWeight: 550 }}>
-            <div> © 2021 Developed by Fennucnft. </div>
+            <div> © 2021 Developed by FennecNFT. </div>
             <div>Licensed & open-source under the MIT License</div>
           </Col>
 

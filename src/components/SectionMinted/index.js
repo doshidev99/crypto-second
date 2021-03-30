@@ -16,7 +16,7 @@ const SectionMinted = () => (
   <WrapperComponent>
     <Row align="middle" gutter={8}>
       <Col>
-        <H2 className="mb-md-0" isOrange> Top Minted NFT </H2>
+        <H2 className="mb-md-0" isOrange style={{textDecoration: "underline"}}> Top Minted NFT </H2>
       </Col>
       <Col>
         <AppButton className="mt-0" content="View All NFT" />
@@ -47,7 +47,7 @@ const SectionMinted = () => (
                 </Col>
                 <Col xs={10} className="px-0">
                   <WrapperCardChild>
-                    <div>You Own</div>
+                    <div>Minted</div>
                     <Divider orientation="center" style={{ background: '#fff' }} className="my-1" />
                     <div>-</div>
                   </WrapperCardChild>

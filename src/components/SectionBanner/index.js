@@ -16,7 +16,8 @@ const BannerComponent = () => (
       <H2 color={COLORS.primary}> FENNECNFT </H2>
       <H1 color={COLORS.second}>Money Markets</H1>
       <Slogan color={COLORS.second}>
-        A Decentralized Marketplace for Lenders and Borrowers with Borderless Stablecoins.
+        A Decentralized Marketplace for Lenders and Borrowers with Borderless Stablecoins.<br></br>
+       Coming soon...
     </Slogan>
 
       <AppButton content="Launch App" />

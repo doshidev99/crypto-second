@@ -25,7 +25,7 @@ const BuySectionPreSale = () => {
 
   const dispatch = useDispatch()
 
-  const [currentReceived, setCurrentReceived] = useState('- FNT');
+  const [currentReceived, setCurrentReceived] = useState('- FNC');
 
   const { pathname } = useLocation()
 
@@ -65,7 +65,7 @@ const BuySectionPreSale = () => {
 
     {
       type: 'Liquidity',
-      value: 70,
+      value: 80,
     },
     {
       type: 'Referal',
@@ -73,7 +73,7 @@ const BuySectionPreSale = () => {
     },
     {
       type: 'Team',
-      value: 20,
+      value: 10,
     },
   ];
   //
@@ -131,7 +131,7 @@ const BuySectionPreSale = () => {
           <Row gutter={24} align="middle" justify="space-between">
             <Col>
               <H2 style={{ fontSize: 20 }} className="mb-0" color={COLORS.colorCountDown}>
-                Your REF
+                Your Referral
               </H2>
             </Col>
           </Row>
@@ -170,9 +170,9 @@ const BuySectionPreSale = () => {
       <H2 className="text-center" style={{ color: '#0a1f37' }} >
 
         <span style={{ color: COLORS.colorCountDown }}>
-          ENDS IN
+          ENDS IN 
         </span>
-         15:12:25:14
+          15:12:25:14
     </H2>
 
       <Row gutter={24} align="middle" justify="space-between">
@@ -185,7 +185,7 @@ const BuySectionPreSale = () => {
                 </H2>
               </Col>
               <Col xs={14} className="text-right">
-                <AppButton className="mt-md-0 mt-2 d-inline-block" content="More info" isquestion />
+                <AppButton className="mt-md-0 mt-2 d-inline-block" content="More info" isquestion onClick={()=> window.open('https://google.com', '_blank')}/>
               </Col>
             </Row>
           </WrapperHeaderCard>
@@ -205,10 +205,13 @@ const BuySectionPreSale = () => {
               </H2>
               </Col>
               <Col>
-                <AppButton className="mt-0" content="Referer"
+              {isConnected ? <AppButton className="mt-0" content="Referral"
                   isShare
                   onClick={toggle}
-                />
+                /> : <AppButton disable className="mt-0" content="Referral"
+                isShare
+              />}
+                
               </Col>
             </Row>
           </WrapperHeaderCard>

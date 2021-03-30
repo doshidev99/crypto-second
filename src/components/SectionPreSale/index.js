@@ -20,37 +20,38 @@ const PreSale = () => (
     <Row gutter={24} align="middle">
       <Col xs={24} md={14}>
         <WrapperContent>
-          <H2 color={COLORS.primary} isOrange> FENNECNFT </H2>
+          <H2 color={COLORS.primary} isOrange style={{textDecoration: "underline"}}> FENNECNFT </H2>
           <H3 color={COLORS.second} isOrange>Pre-sale Coming Soon</H3>
 
           <Slogan color={COLORS.second}>
-            Fennucnft aims to be the first fully decentralized exchange and on-chain staking protocol that allows users to earn rewards from other liquidity pools as well as perform token swaps.
+            NFTs has revolutionized Digital Arts quite simply. Non-fungible token (NFT) is a special token that represents a single asset - in this use case, that asset is Digital Arts. Due to the nature of the NFT, these assets are digitally scarce
           </Slogan>
 
           <Row gutter={24} style={{ color: COLORS.primary, paddingTop: 40 }} justify="flex-start">
             <Col>
               <span style={{ fontWeight: 550 }}>
                 Name:
-            </span>
+              </span>
               <span className="font-weight-bold"> FENNECNFT</span></Col>
             <Col>
               <span style={{ fontWeight: 550 }}>
                 Symbol:
-            </span>
-              <span className="font-weight-bold"> FNT</span> </Col>
+              </span>
+              <span className="font-weight-bold"> FNC</span> </Col>
           </Row>
 
 
           <Row gutter={24} style={{ color: COLORS.primary }} justify="flex-start">
             <Col>
               <span style={{ fontWeight: 550 }}>
-                Total Supply:
-            </span>
-              <span className="font-weight-bold"> 800.000.000</span></Col>
+                Total Max Supply:
+              </span>
+              <span className="font-weight-bold"> 10.000.000 FNC</span><br></br>
+            </Col>
             <Col>
               <span style={{ fontWeight: 550 }}>
                 Platform:
-            </span>
+              </span>
               <span className="font-weight-bold"> BSC</span> </Col>
           </Row>
 
@@ -84,7 +85,7 @@ const PreSale = () => (
             </Col>
           </Row>
 
-          <BuyNow color={COLORS.primary}>
+          <BuyNow color={COLORS.primary} onClick={()=> window.location = '/buy'}>
             buy now
           </BuyNow>
 

@@ -11,7 +11,7 @@ import styled from 'styled-components';
 
 const SectionMarket = () => (
   <WrapperComponent>
-    <H2 className="mb-md-0  pb-5 text-center" isOrange> Markets </H2>
+    <H2 className="mb-md-0  pb-5 text-center" isOrange style={{textDecoration: "underline"}}> Bank </H2>
 
     <Row gutter={24} justify="space-between" align="middle">
       <Col xs={24} md={12}>
