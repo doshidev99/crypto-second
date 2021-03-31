@@ -73,10 +73,15 @@ const WrapperConnectMobile = styled.div`
   line-height: 40px;
   padding: 0 20px;
   cursor: pointer;
-  text-align: center;
 
   &:hover {
     color: darkblue
+  }
+
+
+
+  @media only screen and (max-width: 768px) {
+    padding: 0;
   }
 `;
 

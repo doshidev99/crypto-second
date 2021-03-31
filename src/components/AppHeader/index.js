@@ -7,7 +7,6 @@ import { NavLink, useLocation } from 'react-router-dom';
 import * as D from './styled';
 
 
-
 const listMenu = [
   {
     name: 'NFT',
@@ -32,6 +31,7 @@ const listMenu = [
 ];
 
 const MenuMobile = ({ connected }) => {
+
 
   const handleConnect = () => {
     window?.ethereum?.enable().then(res => res?.length > 0 && window.location.reload());
@@ -92,7 +92,10 @@ const AppHeader = () => {
             <MenuDesktop connected={isConnected} />
           </div>
           <div className="d-md-none d-block">
-            <Dropdown overlay={<MenuMobile connected={isConnected} />} placement="bottomCenter">
+            <Dropdown
+            visible
+              overlay={<MenuMobile connected={isConnected} />} placement="bottomCenter"
+            >
               <D.WrapperButton>
                 <Button>
                   Open Menu

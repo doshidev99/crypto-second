@@ -7,6 +7,8 @@ import { H1, H2, M16, M20 } from 'globalStyle.js';
 import debounce from "lodash/debounce";
 import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import Countdown from 'react-countdown';
+
 import { useLocation } from 'react-router';
 import { getContract } from 'redux/actions/getContract';
 import { COLORS } from 'rootConstants';
@@ -14,8 +16,10 @@ import styled from 'styled-components';
 import { copyStringToClipboard } from 'utils';
 import { WrapperIconCoin } from './styles';
 
+import { useCountdown } from 'hooks/useCountDown'
 
 const BuySectionPreSale = () => {
+  const [dayFuture] = useCountdown('2021/12/24');
 
   const { balance, isConnected, account } = useSelector(state => state.w3Reducer)
 
@@ -169,23 +173,29 @@ const BuySectionPreSale = () => {
       </Row>
       <H2 className="text-center" style={{ color: '#0a1f37' }} >
 
-        <span style={{ color: COLORS.colorCountDown }}>
-          ENDS IN 
+        <span style={{ color: COLORS.colorCountDown, paddingRight: 5 }}>
+          ENDS IN
         </span>
-          15:12:25:14
-    </H2>
+        <Countdown
+          date={dayFuture}
+          renderer={({ days, hours, minutes, seconds }) => <>{days} : {hours} : {minutes} : {seconds} </>}
+          daysInHours
+          intervalDelay={0}
+          precision={3}
+        />
+      </H2>
 
       <Row gutter={24} align="middle" justify="space-between">
         <Col xs={24} md={10}>
           <WrapperHeaderCard>
             <Row gutter={24} align="middle" justify="space-between">
               <Col xs={10}>
-                <H2 style={{ fontSize: 20 , color: '#f29d2c'}} className="mb-0">
+                <H2 style={{ fontSize: 20, color: '#f29d2c' }} className="mb-0">
                   Presale Details
                 </H2>
               </Col>
               <Col xs={14} className="text-right">
-                <AppButton className="mt-md-0 mt-2 d-inline-block" content="More info" isquestion onClick={()=> window.open('https://google.com', '_blank')}/>
+                <AppButton className="mt-md-0 mt-2 d-inline-block" content="More info" isquestion onClick={() => window.open('https://google.com', '_blank')} />
               </Col>
             </Row>
           </WrapperHeaderCard>
@@ -205,13 +215,13 @@ const BuySectionPreSale = () => {
               </H2>
               </Col>
               <Col>
-              {isConnected ? <AppButton className="mt-0" content="Referral"
+                {isConnected ? <AppButton className="mt-0" content="Referral"
                   isShare
                   onClick={toggle}
                 /> : <AppButton disable className="mt-0" content="Referral"
-                isShare
-              />}
-                
+                  isShare
+                />}
+
               </Col>
             </Row>
           </WrapperHeaderCard>
