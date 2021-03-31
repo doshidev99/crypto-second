@@ -75,6 +75,12 @@ export default function App() {
             )}
           />
           <Route exact 
+            path="/docs"
+            component={() => (
+              <Coming />
+            )}
+          />
+          <Route 
             path="/"
             exact
             component={() => (

@@ -13,7 +13,7 @@ import { listMenu } from 'rootConstants';
 import styled from 'styled-components';
 
 
-const listSocial = [{ name: 'Telegram', component: Telegram }, { name: 'Twitter', component: Twitter }, { name: 'Contract', component: Contract }]
+const listSocial = [{ name: 'Telegram', component: Telegram, link: 'https://t.me/fennecnftofficial' }, { name: 'Twitter', component: Twitter, link: 'https://twitter.com/FennecNft' }, { name: 'Contract', component: Contract, link: 'https://bscscan.com/token/0x7952a0FABcE6b56dC94dbdb1273afE0bD91b57eC' }]
 
 
 const AppFooter = () => {
@@ -88,7 +88,7 @@ const AppFooter = () => {
                         </div>
                       </Col>
                       <Col className="text-white pl-2">
-                        {el.name}
+                      <a href={el.link} target="_blank" rel="noreferrer" style={{color: 'white'}}>{el.name}</a>
                       </Col>
                     </Row>
                   </Col>

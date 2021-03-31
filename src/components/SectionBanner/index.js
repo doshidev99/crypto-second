@@ -33,7 +33,7 @@ const WrapperComponent = styled.div`
     background-size: cover;
     background-color: white;
     width: 100%;
-    height: 100vh;
+    height: 120vh;
 
     padding: 100px;
     @media only screen and (max-width: 768px) {

@@ -1,26 +1,11 @@
-import { message } from "antd";
+
 import bg from "assets/images/bgAidrop.jpg";
 import { H1 } from "globalStyle.js";
 import React, { memo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getContractWithAirDrop } from "redux/actions/getContract";
 import styled from "styled-components";
 
 const AirDrop = () => {
-  const dispatch = useDispatch();
 
-  const { account } = useSelector((state) => state.w3Reducer);
-
-  const handleContractAirDrop = () => {
-    if (account) {
-      const payload = {
-        account,
-      };
-      dispatch(getContractWithAirDrop(payload));
-    } else {
-      message.warn("Please Connect Wallet");
-    }
-  };
   return (
     <>
       <WrapperComponent bg={bg}>

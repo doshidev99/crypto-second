@@ -66,8 +66,10 @@ const SectionMinted = () => (
         <img src={logo} alt="" />
       </div>
 
-      <WrapperTagNote color='#f29d2c'>
-        FENNECNFT enables the world's first decentralized stablecoin, VAI, built on Binance Smart Chain that is backed by a basket of stablecoins and crypto assets without centralized control.
+      <WrapperTagNote color='#f29d2c' className="mt-3">
+      FNC fair and transparent token distribution, publicly open tokens, anyone can buy in advance without registration of the whitepaper
+Fnc uses bsc's smart contract to provide the security and correctness of code required for the asset and other high-value scenarios.
+The use of NFT in the FNC is intended to either solve or mitigate the asset's known inflationary problems for stability.
       </WrapperTagNote>
 
       <AppButton content="Learn more" />
