@@ -90,7 +90,7 @@ export default function App() {
               <Home />
             )}
           />
-          <Route component={NotFound} />
+          <Route paht="*" component={NotFound} />
 
         </Switch>
 
