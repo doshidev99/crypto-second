@@ -9,6 +9,14 @@ img {
 
 }
 
+.ant-drawer-body {
+	padding: 0;	background: #ff9c5a;
+}
+
+li.ant-menu-item.ant-menu-item-only-child:nth-last-child(1) {
+	background: white;
+}
+
 
 .menu-mobile > li:hover {
 		background: rgb(218, 132, 132);

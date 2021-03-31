@@ -66,19 +66,13 @@ const WrapperConnect = styled.div`
 `;
 
 const WrapperConnectMobile = styled.div`
-  color: white;
+  color: green;
   font-weight: bold;
-  border-radius: 10px;
   height: 40px;
   line-height: 40px;
   padding: 0 20px;
   cursor: pointer;
-
-  &:hover {
-    color: darkblue
-  }
-
-
+  width: 100%;
 
   @media only screen and (max-width: 768px) {
     padding: 0;

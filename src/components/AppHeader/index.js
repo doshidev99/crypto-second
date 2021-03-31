@@ -1,7 +1,7 @@
-import { Button, Col, Dropdown, Menu, Row } from 'antd';
+import { Button, Col, Drawer, Menu, Row } from 'antd';
 import logo from 'assets/images/logo.png';
 import MenuDesktop from 'components/MenuDesktop';
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { useSelector } from "react-redux";
 import { NavLink, useLocation } from 'react-router-dom';
 import * as D from './styled';
@@ -31,7 +31,6 @@ const listMenu = [
 ];
 
 const MenuMobile = ({ connected }) => {
-
 
   const handleConnect = () => {
     window?.ethereum?.enable().then(res => res?.length > 0 && window.location.reload());
@@ -67,13 +66,14 @@ const MenuMobile = ({ connected }) => {
       </Menu.Item>
 
     </Menu>
-
   )
 };
 
 const AppHeader = () => {
 
   const { pathname } = useLocation();
+
+  const [visible, setVisible] = useState(false)
 
   const { isConnected } = useSelector((state) => state.w3Reducer);
 
@@ -92,21 +92,24 @@ const AppHeader = () => {
             <MenuDesktop connected={isConnected} />
           </div>
           <div className="d-md-none d-block">
-            <Dropdown
-            visible
-              overlay={<MenuMobile connected={isConnected} />} placement="bottomCenter"
-            >
-              <D.WrapperButton>
-                <Button>
-                  Open Menu
+            <D.WrapperButton>
+              <Button onClick={() => setVisible(true)}>
+                Open Menu
               </Button>
-              </D.WrapperButton>
-            </Dropdown>
+            </D.WrapperButton>
+            <Drawer
+              placement="right"
+              closable={false}
+              visible={visible}
+              onClose={() => setVisible(false)}
+            >
+              <MenuMobile />
+            </Drawer>
           </div>
         </Col>
       </Row>
 
-    </D.WrapperHeader>
+    </D.WrapperHeader >
 
   )
 };
