@@ -1,4 +1,4 @@
-export const NETWORK = '97';
+export const NETWORK = '56';
 
 export const COLORS = {
   primary: '#ff6600',

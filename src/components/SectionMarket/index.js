@@ -29,7 +29,8 @@ const SectionMarket = () => (
         </Slogan>
 
           <ReadButton>
-            Read the Whitepaper
+          <a href="/" target="_blank" rel="noreferrer" style={{color: 'white'}}>Read the Whitepaper</a>
+            
         </ReadButton>
         </WrapperContent>
       </Col>

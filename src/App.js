@@ -45,52 +45,41 @@ export default function App() {
   }, [dispatch])
 
   return (
-    <Router>
-      <div className="App">
-        <AppHeader />
+      <Router>
+        <div className="App">
+          <AppHeader />
 
-        <Switch>
-          <Route exact 
-            path="/buy"
-            component={() => (
-              <Buy />
-            )}
-          />
-          <Route exact 
-            path="/airdrop"
-            component={() => (
-              <AirDrop />
-            )}
-          />
-          <Route exact 
-            path="/bank"
-            component={() => (
-              <Coming />
-            )}
-          />
-          <Route exact 
-            path="/nft"
-            component={() => (
-              <Coming />
-            )}
-          />
-          <Route exact 
-            path="/docs"
-            component={() => (
-              <Coming />
-            )}
-          />
-          <Route 
-            path="/"
-            exact
-            component={() => (
-              <Home />
-            )}
-          />
-        </Switch>
-        <AppFooter />
+          <Switch>
+            <Route
+              path="/buy"
+              component={Buy}
+            />
+            <Route
+              path="/airdrop"
+              component={AirDrop}
+            />
+            <Route
+              path="/bank"
+              component={Coming}
+            />
+            <Route
+              path="/nft"
+              component={Coming}
+            />
+            <Route
+              path="/docs"
+              component={Coming}
+            />
+            <Route
+              path="/"
+              component={() => (
+                <Home />
+              )}
+            />
+          </Switch>
+          <AppFooter />
 
-      </div>
-    </Router>
+        </div>
+      </Router>
   );
 }

@@ -17,31 +17,21 @@ import styled from 'styled-components';
 
 import { useCountdown } from 'hooks/useCountDown'
 
-const listSocial = [{ name: 'Telegram', component: Telegram, link: 'https://t.me/fennecnftofficial' }, { name: 'Twitter', component: Twitter, link: 'https://twitter.com/FennecNft' }, { name: 'Contract', component: Contract, link: 'https://bscscan.com/token/0x7952a0FABcE6b56dC94dbdb1273afE0bD91b57eC' }]
+const listSocial = [{ name: 'Telegram', component: Telegram, link: 'https://t.me/fennecnftofficial' }, { name: 'Twitter', component: Twitter, link: 'https://twitter.com/FennecNft' }, { name: 'Contract', component: Contract, link: 'https://bscscan.com/token/0xa583a83ee4EB64a89938e9af36521a6bcf891bC0' }]
 
 const PreSale = () => {
 
   const renderer = ({ days, hours, minutes, seconds }) => {
     return (
       <Row gutter={24}>
-        <Col xs={6}>
+        <Col xs={12}>
           <WrapperCount color={COLORS.primary}>
-            {days}
+            01 April 2021 UTC
           </WrapperCount>
         </Col>
-        <Col xs={6}>
+        <Col xs={12}>
           <WrapperCount color={COLORS.primary}>
-            {hours}
-          </WrapperCount>
-        </Col>
-        <Col xs={6}>
-          <WrapperCount color={COLORS.primary}>
-            {minutes}
-          </WrapperCount>
-        </Col>
-        <Col xs={6}>
-          <WrapperCount color={COLORS.primary}>
-            {seconds}
+          <a href="https://bscscan.com/block/countdown/6190987" target='_blank' rel="noreferrer" style={{color: '#ff6600'}}>Countdown</a> 
           </WrapperCount>
         </Col>
       </Row>
@@ -49,7 +39,7 @@ const PreSale = () => {
     )
   };
 
-  const [dayFuture] = useCountdown('2021/12/24');
+  const [dayFuture] = useCountdown('2021/4/1');
   return (
     <WrapperComponent imgUrl={bgImage}>
       <Row gutter={24} align="middle">
@@ -59,19 +49,19 @@ const PreSale = () => {
             <H3 color={COLORS.second} isOrange>Pre-sale Coming Soon</H3>
             <Slogan color={COLORS.second}>
               NFTs has revolutionized Digital Arts quite simply. Non-fungible token (NFT) is a special token that represents a single asset - in this use case, that asset is Digital Arts. Due to the nature of the NFT, these assets are digitally scarce
-          </Slogan>
+            </Slogan>
 
 
             <Row gutter={24} style={{ color: COLORS.primary, paddingTop: 40 }} justify="flex-start">
               <Col>
                 <span style={{ fontWeight: 550 }}>
                   Name:
-              </span>
+                </span>
                 <span className="font-weight-bold"> FENNECNFT</span></Col>
               <Col>
                 <span style={{ fontWeight: 550 }}>
                   Symbol:
-              </span>
+                </span>
                 <span className="font-weight-bold"> FNC</span> </Col>
             </Row>
 
@@ -80,13 +70,13 @@ const PreSale = () => {
               <Col>
                 <span style={{ fontWeight: 550 }}>
                   Total Max Supply:
-              </span>
+                </span>
                 <span className="font-weight-bold"> 10.000.000 FNC</span><br></br>
               </Col>
               <Col>
                 <span style={{ fontWeight: 550 }}>
                   Platform:
-              </span>
+                </span>
                 <span className="font-weight-bold"> BSC</span> </Col>
             </Row>
 
@@ -106,7 +96,7 @@ const PreSale = () => {
             />
             <BuyNow color={COLORS.primary} onClick={() => window.location = '/buy'}>
               buy now
-          </BuyNow>
+            </BuyNow>
 
 
             <Row gutter={24}>
@@ -120,7 +110,7 @@ const PreSale = () => {
                         </div>
                       </Col>
                       <Col className="text-white pl-2">
-                        {el.name}
+                        <a href={el.link} target="_blank" rel="noreferrer" style={{ color: 'white' }}>{el.name}</a>
                       </Col>
                     </Row>
                   </Col>
@@ -158,7 +148,7 @@ const WrapperCount = styled.div`
   color:  ${(props) => props.color};
 
   font-weight: bold;
-  font-size: 20px;
+  font-size: 14px;
   border-radius: 6px;
   height: 50px;
   line-height: 50px;

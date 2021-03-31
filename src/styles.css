@@ -1,32 +1,35 @@
 img {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .menu-mobile {
-	background: #ff9c5a;
+  background: linear-gradient(
+    90deg,
+    rgb(2, 0, 36) 0%,
+    rgb(242, 157, 44) 0%,
+    rgb(255, 118, 26) 100%
+  );
 
-	padding:0;
-
+  padding: 0;
 }
 
 .ant-drawer-body {
-	padding: 0;	background: #ff9c5a;
+  padding: 0;
+  background: #ff9c5a;
 }
 
 li.ant-menu-item.ant-menu-item-only-child:nth-last-child(1) {
-	background: white;
+  background: white;
 }
-
 
 .menu-mobile > li:hover {
-		background: rgb(218, 132, 132);
+  background: rgb(218, 132, 132);
 }
 
-
 .ant-modal-content {
-	border-radius: 15px;
+  border-radius: 15px;
 }
 
 .cl-yellow {
-	color: #dd9c3c;
+  color: #dd9c3c;
 }

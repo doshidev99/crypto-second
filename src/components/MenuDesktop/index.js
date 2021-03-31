@@ -1,7 +1,7 @@
 import { Menu, Row } from 'antd';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { listMenu } from 'rootConstants';
 import styled from 'styled-components';
 import { WrapperConnect, WrapperMenu } from './styled';
@@ -23,12 +23,12 @@ const MenuDesktop = ({ isFooter }) => {
             listMenu.map((menu) => (
               <Menu.Item key={menu.name}>
                 <WrapperMenu>
-                  <NavLink exact to={menu.path} className={`${menu.path === pathname && 'activeMenu'}`}>
+                  <Link exact to={menu.path} className={`${menu.path === pathname && 'activeMenu'}`}>
                     {
                       menu.name
                     }
 
-                  </NavLink>
+                  </Link>
                 </WrapperMenu>
               </Menu.Item>
             ))

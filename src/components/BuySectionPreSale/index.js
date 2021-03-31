@@ -19,13 +19,13 @@ import { WrapperIconCoin } from './styles';
 import { useCountdown } from 'hooks/useCountDown'
 
 const BuySectionPreSale = () => {
-  const [dayFuture] = useCountdown('2021/12/24');
+  const [dayFuture] = useCountdown('2021/4/30');
 
   const { balance, isConnected, account } = useSelector(state => state.w3Reducer)
 
   const [currentBalance, setCurrentBalance] = useState()
   const [isVisibale, setIsvisible] = useState(false)
-  const [currentRef, setCurrentRef] = useState('0x5F6c31525d7c643cb7dbcA8d94a3Ef99384eaEba')
+  const [currentRef, setCurrentRef] = useState('0x6601b15891B9FDbe564B884F84cDA8e67DC6787A')
 
   const dispatch = useDispatch()
 
@@ -36,7 +36,7 @@ const BuySectionPreSale = () => {
   const refUrl = pathname.split('/')[2]
 
   const onClipBoard = () => {
-    copyStringToClipboard(`https://fennecnft.com/buy/${currentRef}`);
+    copyStringToClipboard(`https://fennecnft.com/buy/${account}`);
     message.success('Copy REF success');
   };
 
@@ -60,7 +60,7 @@ const BuySectionPreSale = () => {
 
   useEffect(() => {
     if (refUrl) {
-      setCurrentRef(preState => preState !== refUrl ? refUrl : '0x5F6c31525d7c643cb7dbcA8d94a3Ef99384eaEba')
+      setCurrentRef(preState => preState !== refUrl ? refUrl : '0x6601b15891B9FDbe564B884F84cDA8e67DC6787A')
     }
   }, [refUrl])
 
@@ -103,7 +103,7 @@ const BuySectionPreSale = () => {
   }
   const getBalance = async () => {
     if (balance) {
-      await setCurrentBalance(() => balance)
+      await setCurrentBalance(() => (+balance - 0.01))
       await setCurrentReceived(() => (+balance * 2500).toFixed(3))
     }
   }
@@ -151,7 +151,7 @@ const BuySectionPreSale = () => {
             </Row>
 
             <Input
-              value={`https://fennecnft.com/buy/${currentRef}`}
+              value={`https://fennecnft.com/buy/${account}`}
               type="text" size="small"
               placeholder="Enter BNB amount" addonAfter={
                 <WrapperInInput style={{ color: 'white', opacity: 1 }} onClick={onClipBoard}>
@@ -178,7 +178,7 @@ const BuySectionPreSale = () => {
         </span>
         <Countdown
           date={dayFuture}
-          renderer={({ days, hours, minutes, seconds }) => <>{days} : {hours} : {minutes} : {seconds} </>}
+          renderer={({ days, hours, minutes, seconds }) => <>{days}d : {hours}h : {minutes}m : {seconds}s </>}
           daysInHours
           intervalDelay={0}
           precision={3}
@@ -272,8 +272,6 @@ const BuySectionPreSale = () => {
                   </Row>
                 </Col>
               </Row>
-
-              <div className="text-center">Tokens are ....</div>
 
 
               {

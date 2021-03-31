@@ -31,19 +31,19 @@ const AirDrop = () => {
           style={{ color: "#0a1f37" }}
         >
           {" "}
-          Free FNT Airdrop{" "}
+          Free FNC Airdrop{" "}
         </H1>
         <M16 className="py-2" style={{ opacity: 0.7 }}>
-          Free $FNT for everyone on a first-come-first-serve basis{" "}
+          Free FNC for everyone on a first-come-first-serve basis{" "}
         </M16>
 
         <M20 className="py-2">
           {" "}
-          <b>To get FNT, please retweet this</b>
-          <b className="cl-yellow pl-1"><a href="/">Tweet</a></b> , follow
-          <b className="cl-yellow pl-1"><a href="/">FennectNFT Twitter</a></b>, and join
-          <b className="cl-yellow pl-1"><a href="/">FennectNFT Telegram</a></b> & 
-          <b className="cl-yellow pl-1"><a href="/">Group</a></b>
+          <b>To get FNC, please retweet this</b>
+          <b className="cl-yellow pl-1"><a href="https://twitter.com/FennecNft">Tweet</a></b> , follow
+          <b className="cl-yellow pl-1"><a href="https://twitter.com/FennecNft">FennecNFT Twitter</a></b>, and join
+          <b className="cl-yellow pl-1"><a href="https://t.me/fennecnftofficial">FennecNFT Telegram</a></b> & 
+          <b className="cl-yellow pl-1"><a href="https://t.me/fennecnftchat">Group</a></b>
         </M20>
         {/* <M20 className="py-2">
           {" "}
@@ -53,17 +53,11 @@ const AirDrop = () => {
         <div style={{ width: 170, padding: '50px 0'}} className="mx-auto">
           <img src={IconCoin} alt="" />
         </div>
-
-        <M20 className="py-2">
-          {" "}
-          You can also get XBT (ETH Network) airdrop
-          <b className="cl-yellow pl-1"> here</b>
-        </M20>
         <AppButton
           onClick={handleContractAirDrop}
           className="mx-auto d-block"
           style={{ width: 200 }}
-          content="GET FNT NOW!"
+          content="GET FNC NOW!"
         />
       </WrapperComponent>
     </>

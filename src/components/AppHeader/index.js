@@ -9,24 +9,28 @@ import * as D from './styled';
 
 const listMenu = [
   {
-    name: 'NFT',
+    name: 'Home',
     path: '/',
   },
   {
-    name: 'Markets',
-    path: '/markets',
+    name: 'NFT',
+    path: '/nft',
+  },
+  {
+    name: 'Bank',
+    path: '/bank',
   },
   {
     name: 'Buy',
     path: '/buy',
   },
   {
-    name: 'Exchange',
-    path: '/exchange',
+    name: 'Airdrops',
+    path: '/airdrop',
   },
   {
     name: 'Docs',
-    path: '/docs',
+    path: '/https://docs.fennecnft.com',
   },
 ];
 
@@ -94,7 +98,7 @@ const AppHeader = () => {
           <div className="d-md-none d-block">
             <D.WrapperButton>
               <Button onClick={() => setVisible(true)}>
-                Open Menu
+                Menu
               </Button>
             </D.WrapperButton>
             <Drawer
