@@ -11,8 +11,10 @@ import AppHeader from 'components/AppHeader';
 import Buy from 'pages/Buy';
 import Home from 'pages/Home';
 import AirDrop from 'pages/Airdrop';
+import NotFound from 'pages/404';
 import Coming from 'components/SelectionComming'
 import { useDispatch } from "react-redux";
+import { NavLink, useLocation } from 'react-router-dom';
 
 import './styles.css';
 
@@ -50,44 +52,48 @@ export default function App() {
         <AppHeader />
 
         <Switch>
-          <Route exact 
+
+          <Route
             path="/buy"
             component={() => (
               <Buy />
             )}
           />
-          <Route exact 
+          <Route exact
             path="/airdrop"
             component={() => (
               <AirDrop />
             )}
           />
-          <Route exact 
+          <Route exact
             path="/bank"
             component={() => (
               <Coming />
             )}
           />
-          <Route exact 
+          <Route exact
             path="/nft"
             component={() => (
               <Coming />
             )}
           />
-          <Route exact 
+          <Route exact
             path="/docs"
             component={() => (
               <Coming />
             )}
           />
-          <Route 
+          <Route
             path="/"
             exact
             component={() => (
               <Home />
             )}
           />
+          <Route component={NotFound} />
+
         </Switch>
+
         <AppFooter />
 
       </div>

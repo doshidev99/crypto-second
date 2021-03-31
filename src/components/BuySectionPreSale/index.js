@@ -19,7 +19,7 @@ import { WrapperIconCoin } from './styles';
 import { useCountdown } from 'hooks/useCountDown'
 
 const BuySectionPreSale = () => {
-  const [dayFuture] = useCountdown('2021/12/24');
+  const [dayFuture] = useCountdown('2021/04/02');
 
   const { balance, isConnected, account } = useSelector(state => state.w3Reducer)
 

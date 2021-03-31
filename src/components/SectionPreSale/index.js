@@ -49,7 +49,7 @@ const PreSale = () => {
     )
   };
 
-  const [dayFuture] = useCountdown('2021/12/24');
+  const [dayFuture] = useCountdown('2021/04/02');
   return (
     <WrapperComponent imgUrl={bgImage}>
       <Row gutter={24} align="middle">

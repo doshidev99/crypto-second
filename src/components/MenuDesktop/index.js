@@ -15,6 +15,8 @@ const MenuDesktop = ({ isFooter }) => {
     window?.ethereum?.enable().then(res => res?.length > 0 && window.location.reload());
   }
 
+  // eslint-disable-next-line no-console
+
   return (
     <WrapperComponent>
       <Menu style={{ background: 'none', border: 'none', fontSize: 16 }}>
@@ -23,6 +25,7 @@ const MenuDesktop = ({ isFooter }) => {
             listMenu.map((menu) => (
               <Menu.Item key={menu.name}>
                 <WrapperMenu>
+
                   <NavLink exact to={menu.path} className={`${menu.path === pathname && 'activeMenu'}`}>
                     {
                       menu.name
