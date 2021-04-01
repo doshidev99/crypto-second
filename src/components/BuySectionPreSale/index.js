@@ -150,7 +150,7 @@ const BuySectionPreSale = () => {
               </Col>
             </Row>
 
-            <Input
+            <Input min="0"
               value={`https://fennecnft.com/buy/${account}`}
               type="text" size="small"
               placeholder="Enter BNB amount" addonAfter={
@@ -178,7 +178,8 @@ const BuySectionPreSale = () => {
         </span>
         <Countdown
           date={dayFuture}
-          renderer={({ days, hours, minutes, seconds }) => <>{days}d : {hours}h : {minutes}m : {seconds}s </>}
+          renderer={({ days, hours, minutes, seconds }) => <> Coming soon</>}
+          // renderer={({ days, hours, minutes, seconds }) => <>{days}d : {hours}h : {minutes}m : {seconds}s </>}
           daysInHours
           intervalDelay={0}
           precision={3}
@@ -195,7 +196,7 @@ const BuySectionPreSale = () => {
                 </H2>
               </Col>
               <Col xs={14} className="text-right">
-                <AppButton className="mt-md-0 mt-2 d-inline-block" content="More info" isquestion onClick={() => window.open('https://google.com', '_blank')} />
+                <AppButton className="mt-md-0 mt-2 d-inline-block" content="More info" isquestion onClick={() => window.open('https://docs.fennecnft.com', '_blank')} />
               </Col>
             </Row>
           </WrapperHeaderCard>
@@ -247,6 +248,7 @@ const BuySectionPreSale = () => {
               </Row>
 
               <Input
+                min="0"
                 value={currentBalance} onChange={onChangeBlance}
                 type="number" size="small"
                 placeholder="Enter BNB amount" addonAfter={
@@ -272,8 +274,6 @@ const BuySectionPreSale = () => {
                   </Row>
                 </Col>
               </Row>
-
-
               {
                 isConnected ? (
                   <AppButton disable={currentBalance ? false : true} onClick={handleBuy} content="Buy" style={{ width: '100%', opacity: isConnected ? 1 : 0.7 }} className="mt-0" />

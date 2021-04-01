@@ -21,6 +21,13 @@ const MenuDesktop = ({ isFooter }) => {
         <Row align="middle" justify="space-between">
           {
             listMenu.map((menu) => (
+              menu.path === "docs" ? 
+                <Menu.Item key={menu.name}>
+                <WrapperMenu>
+                  <a href="https://docs.fennecnft.com" target="_blank" rel="noreferrer" className="">{menu.name}</a>
+                </WrapperMenu>
+              </Menu.Item>
+               : 
               <Menu.Item key={menu.name}>
                 <WrapperMenu>
                   <Link exact to={menu.path} className={`${menu.path === pathname && 'activeMenu'}`}>
@@ -31,6 +38,7 @@ const MenuDesktop = ({ isFooter }) => {
                   </Link>
                 </WrapperMenu>
               </Menu.Item>
+
             ))
           }
 

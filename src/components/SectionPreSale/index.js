@@ -26,12 +26,12 @@ const PreSale = () => {
       <Row gutter={24}>
         <Col xs={12}>
           <WrapperCount color={COLORS.primary}>
-            01 April 2021 UTC
+            02 April 2021 UTC
           </WrapperCount>
         </Col>
         <Col xs={12}>
           <WrapperCount color={COLORS.primary}>
-          <a href="https://bscscan.com/block/countdown/6190987" target='_blank' rel="noreferrer" style={{color: '#ff6600'}}>Countdown</a> 
+          <a href="https://bscscan.com/block/countdown/6220640" target='_blank' rel="noreferrer" style={{color: '#ff6600'}}>Countdown</a> 
           </WrapperCount>
         </Col>
       </Row>

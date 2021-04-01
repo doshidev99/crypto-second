@@ -30,7 +30,7 @@ const listMenu = [
   },
   {
     name: 'Docs',
-    path: '/https://docs.fennecnft.com',
+    path: 'docs',
   },
 ];
 
@@ -43,13 +43,19 @@ const MenuMobile = ({ connected }) => {
     <Menu className="menu-mobile">
       {
         listMenu.map((menu) => (
-          <Menu.Item>
-            <NavLink to={menu.path}>
+          menu.path === 'docs' ?
+            <Menu.Item>
               <D.WrapperMenuMobile>
-                {menu.name}
+                <a href="https://docs.fennecnft.com" target="_blank" rel="noreferrer" style={{color: 'white'}}>{menu.name}</a>
               </D.WrapperMenuMobile>
-            </NavLink>
-          </Menu.Item>
+            </Menu.Item> :
+            <Menu.Item>
+              <NavLink to={menu.path}>
+                <D.WrapperMenuMobile>
+                  {menu.name}
+                </D.WrapperMenuMobile>
+              </NavLink>
+            </Menu.Item>
         ))
       }
 

@@ -38,13 +38,23 @@ const AppFooter = () => {
             <Row align="middle" justify="space-between" >
               {
                 listMenu.map((menu) => (
-                  <Menu.Item>
-                    <WrapperMenu>
-                      <NavLink to={menu.path}>
-                        {menu.name}
-                      </NavLink>
-                    </WrapperMenu>
-                  </Menu.Item>
+                   menu.path === "docs" ? 
+                <Menu.Item key={menu.name}>
+                <WrapperMenu>
+                  <a href="https://docs.fennecnft.com" target="_blank" rel="noreferrer" className="">{menu.name}</a>
+                </WrapperMenu>
+              </Menu.Item>
+               : 
+              <Menu.Item key={menu.name}>
+                <WrapperMenu>
+                  <NavLink exact to={menu.path}>
+                    {
+                      menu.name
+                    }
+
+                  </NavLink>
+                </WrapperMenu>
+              </Menu.Item>
                 ))
               }
 

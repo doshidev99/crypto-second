@@ -39,11 +39,8 @@ const AirDrop = () => {
 
         <M20 className="py-2">
           {" "}
-          <b>To get FNC, please retweet this</b>
-          <b className="cl-yellow pl-1"><a href="https://twitter.com/FennecNft">Tweet</a></b> , follow
-          <b className="cl-yellow pl-1"><a href="https://twitter.com/FennecNft">FennecNFT Twitter</a></b>, and join
-          <b className="cl-yellow pl-1"><a href="https://t.me/fennecnftofficial">FennecNFT Telegram</a></b> & 
-          <b className="cl-yellow pl-1"><a href="https://t.me/fennecnftchat">Group</a></b>
+          <b>To get more 50 FNC, please submit form </b>
+          <b className="cl-yellow pl-1"><a href="https://forms.gle/Nkg6SSQbFmo5VdqK9">here</a></b>
         </M20>
         {/* <M20 className="py-2">
           {" "}

@@ -11,7 +11,7 @@ import styled from 'styled-components';
 
 const SectionMarket = () => (
   <WrapperComponent>
-    <H2 className="mb-md-0  pb-5 text-center" isOrange style={{textDecoration: "underline"}}> Bank </H2>
+    <H2 className="mb-md-0  pb-5 text-center" isOrange style={{ textDecoration: "underline" }}> Bank </H2>
 
     <Row gutter={24} justify="space-between" align="middle">
       <Col xs={24} md={12}>
@@ -23,15 +23,14 @@ const SectionMarket = () => (
 
         <WrapperContent>
           <H2 color={COLORS.primary}> Protocol </H2>
-          <H1 color={COLORS.second}>Money Markets built on Binance Smart Chain</H1>
+          <H1 color={COLORS.second}>The longer you saving the higher the APY</H1>
           <Slogan color={COLORS.second}>
-            You can now tokenize your assets utilizing the Binance Smart Chain and receive portable vTokens that you can freely move around to cold storage, transfer to other users, and more.
-        </Slogan>
+            FennecNFT Bank works like a traditional bank with Saving packages that offer higher interest rates and more decentralization.
+          </Slogan>
 
           <ReadButton>
-          <a href="/" target="_blank" rel="noreferrer" style={{color: 'white'}}>Read the Whitepaper</a>
-            
-        </ReadButton>
+            <a href="https://docs.fennecnft.com" target="_blank" rel="noreferrer" style={{ color: 'white' }}>Read the Whitepaper</a>
+          </ReadButton>
         </WrapperContent>
       </Col>
     </Row>

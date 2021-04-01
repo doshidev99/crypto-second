@@ -16,16 +16,16 @@ export const listMenu = [
     path: '/',
   },
   {
-    name: 'Bank',
-    path: '/bank',
+    name: 'Buy',
+    path: '/buy',
   },
   {
     name: 'Airdrop',
     path: '/airdrop',
   },
   {
-    name: 'Buy',
-    path: '/buy',
+    name: 'Bank',
+    path: '/bank',
   },
   {
     name: 'NFT',
@@ -33,7 +33,7 @@ export const listMenu = [
   },
   {
     name: 'Docs',
-    path: '/docs',
+    path: 'docs',
   },
 ];
 
