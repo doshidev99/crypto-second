@@ -14,8 +14,6 @@ import AirDrop from 'pages/Airdrop';
 import NotFound from 'pages/404';
 import Coming from 'components/SelectionComming'
 import { useDispatch } from "react-redux";
-import { NavLink, useLocation } from 'react-router-dom';
-
 import './styles.css';
 
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Result, Button } from 'antd';
 
 const index = props => {
@@ -13,10 +12,6 @@ const index = props => {
       />
     </div>
   )
-}
-
-index.propTypes = {
-
 }
 
 export default index
